@@ -10,10 +10,13 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class ReCapProjectDbContext:DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public ReCapProjectDbContext(DbContextOptions<ReCapProjectDbContext>options)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB");
         }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB");
+        //}
         DbSet<Brand> Brands { get; set; }
         DbSet<Color> Colors { get; set; }
         DbSet<Car> Cars { get; set; }
